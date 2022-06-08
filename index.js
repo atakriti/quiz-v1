@@ -45,9 +45,26 @@ let answers = document.querySelectorAll(".answer");
 let btn = document.getElementById("submit");
 question.innerHTML = quizData[0].question;
 answerA.innerHTML = quizData[1].a;
+// ========================================== TEST =========================
+let loopCorrect = ""
+for (let i of quizData) {
+  loopCorrect += i.correct
+}
+
+let loopKeys = ""
+for (let i of quizData) {
+    loopKeys=Object.keys(i)
+}
+let result = loopKeys.find(n => loopCorrect.includes(n))
+
+// ============================================= TEST END =====================
 // ========= btn function
-let index = 0;
+let index = 3;
 load(index);
+let loopObjects = []
+for (let i of quizData) {
+  loopObjects.push(Object.keys(i))
+}
 btn.addEventListener("click", () => {
     if (
         !answers[0].checked &&
